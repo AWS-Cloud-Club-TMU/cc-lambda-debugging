@@ -33,11 +33,11 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ../
+        working-directory: ../../
     steps:
       - name: Checkout to working directory
         uses: actions/checkout@v5
-        
+
       - name: Run Easy tests
         env:
           PR_USER: ${{ github.event.pull_request.user.login }}
@@ -56,8 +56,3 @@ jobs:
 
       - name: Run Hard tests
         run: python3 challenges/hard/test_lambda_function3.py
-
-
-          
-
-
