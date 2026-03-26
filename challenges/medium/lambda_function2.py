@@ -42,7 +42,7 @@ def lambda_handler(event, context=None):
         elif char == 'U' or char =='u':
             res +='Uniform'
         elif char == 'Y' or char =='y':
-            res. +='Yankee'
+            res +='Yankee'
         else:
             res += char 
 
