@@ -23,7 +23,7 @@ import json
 def lambda_handler(event, context=None):
 
     word = event['word']
-    res = []
+    res = ""
     if word == None:
         return {
             'statusCode': 400,
@@ -32,19 +32,19 @@ def lambda_handler(event, context=None):
     
     for char in word:
         if char == 'A' or char == 'a':
-            res.append('Alpha')
+            res += 'Alpha'
         elif char == 'E' or char =='e':
-            res.append('Echo')
+            res +='Echo'
         elif char == 'I' or char =='i':
-            res.append('India')
+            res +='India'
         elif char == 'O' or char =='o':
-            res.append('Oscar')
+            res +='Oscar'
         elif char == 'U' or char =='u':
-            res.append('Uniform')
+            res +='Uniform'
         elif char == 'Y' or char =='y':
-            res.append('Yankee')
+            res. +='Yankee'
         else:
-            res.append(char)
+            res += char 
 
     return {
         'statusCode': 200,
