@@ -45,13 +45,13 @@ def lambda_handler(event, context=None):
         "y": "Yankee",
         "Y": "Yankee"
     }
-    for char in word:
+    for c in word:
         if c in m:
             res.append(m[c])
         else:
-            res.append(char)
+            res.append(c)
 
     return {
         'statusCode': 200,
-        'body': res
+        'body': "".join(res)
     }
