@@ -24,7 +24,6 @@ def lambda_handler(event, context=None):
 
     word = event['word']
     res = []
-
     if word == None:
         return {
             'statusCode': 400,
@@ -32,7 +31,20 @@ def lambda_handler(event, context=None):
         }
     
     for char in word:
-        res.append(char)
+        if char == 'A' or char == 'a':
+            res.append('Alpha')
+        elif char == 'E' or char =='e':
+            res.append('Echo')
+        elif char == 'I' or char =='i':
+            res.append('India')
+        elif char == 'O' or char =='o':
+            res.append('Oscar')
+        elif char == 'U' or char =='u':
+            res.append('Uniform')
+        elif char == 'Y' or char =='y':
+            res.append('Yankee')
+        else:
+            res.append(char)
 
     return {
         'statusCode': 200,
