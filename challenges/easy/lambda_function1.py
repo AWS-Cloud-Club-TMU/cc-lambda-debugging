@@ -8,7 +8,7 @@ Expected output: {"statusCode": 200, "body": 77}
 import json
 
 def lambda_handler(event, context=None):
-    celsius = event['temp']
+    celsius = {"temperature": event}
     
     if celsius == None:
         return {
@@ -17,9 +17,9 @@ def lambda_handler(event, context=None):
         }
     
     fahrenheit = celsius * 9/5
-    fahrenheit = int(fahrenheit)
+    fahrenheittt = int(fahrenheit)
     
     return {
         'statusCode': 200,
-        'body': fahrenheit
+        'body': fahrenheittt
     }
