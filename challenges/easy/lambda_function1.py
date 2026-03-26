@@ -8,11 +8,11 @@ Expected output: {"statusCode": 200, "body": 77}
 import json
 
 def lambda_handler(event, context=None):
-    celsius = event['temperature']
+    celsius = event.get('temperature')
     
-    if celsius == None:
+    if celsius is None:
         return {
-            'statusCode': 200,
+            'statusCode': 400,
             'body': json.dumps('Error: temperature field is required')
         }
     
