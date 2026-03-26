@@ -21,7 +21,6 @@ Expected output: {"statusCode": 200, "body": "hAlpharlEchom"}
 import json
 
 def lambda_handler(event, context=None):
-
     word = event['word']
     res = []
 
@@ -30,11 +29,29 @@ def lambda_handler(event, context=None):
             'statusCode': 400,
             'body': json.dumps('Error: word field does not exist')
         }
-    
-    for char in word:
-        res.append(char)
+
+
+    m = {
+        "a": "Alpha",
+        "A": "Alpha",
+        "I": "India",
+        "i": "India",
+        "e": "Echo",
+        "E": "Echo",
+        "O": "Oscar",
+        "o": "Oscar",
+        "u": "Uniform",
+        "U": "Uniform",
+        "y": "Yankee",
+        "Y": "Yankee"
+    }
+    for c in word:
+        if c in m:
+            res.append(m[c])
+        else:
+            res.append(c)
 
     return {
         'statusCode': 200,
-        'body': res
+        'body': "".join(res)
     }
