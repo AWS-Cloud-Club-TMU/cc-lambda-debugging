@@ -9,14 +9,13 @@ import json
 
 
 def lambda_handler(event, context=None):
-    celsius = event['temperature']
     
-    if celsius == None:
+    if "temperature" not in event or event["temperature"] == None:
         return {
             'statusCode': 400,
             'body': json.dumps('Error: temperature field is required')
         }
-    
+    celsius = event['temperature']
     fahrenheit = (celsius * 9/5) + 32
     fahrenheit = round(fahrenheit, 2)
     
