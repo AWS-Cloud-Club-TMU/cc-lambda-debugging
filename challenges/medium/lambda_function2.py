@@ -30,11 +30,13 @@ def lambda_handler(event, context=None):
             'statusCode': 400,
             'body': json.dumps('Error: word field does not exist')
         }
-    
+
+    d = {"a": "Alpha", "e": "Echo", "i": "India", "o": "Oscar", "u": "Uniform", "y": "Yankee"}
     for char in word:
-        res.append(char)
+        if(char.lower() in d): res.append(d[char])
+        else: res.append(char)
 
     return {
         'statusCode': 200,
-        'body': res
+        'body': ''.join(res)
     }
