@@ -19,21 +19,24 @@ Expected input: {"word": "harlem"}
 Expected output: {"statusCode": 200, "body": "hAlpharlEchom"}
 """
 import json
-
 def lambda_handler(event, context=None):
-
-    word = event['word']
-    res = []
-
-    if word == None:
+    word = event.get('word')
+    
+    if word is None:
         return {
             'statusCode': 400,
             'body': json.dumps('Error: word field does not exist')
         }
+    nato_map = {
+        'a': 'Alpha',
+        'e': 'Echo',
+        'i': 'India',
+        'o': 'Oscar',
+        'u': 'Uniform',
+        'y': 'Yankee'
+    }
+    result = "".join(nato_map.get(char.lower(), char) for char in word)
     
-    for char in word:
-        res.append(char)
-
     return {
         'statusCode': 200,
         'body': res
