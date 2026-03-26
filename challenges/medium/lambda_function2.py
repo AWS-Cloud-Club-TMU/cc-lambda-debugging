@@ -35,7 +35,7 @@ def lambda_handler(event, context=None):
         "a": "Alpha",
         "A": "Alpha",
         "I": "India",
-        "i": "india",
+        "i": "India",
         "e": "Echo",
         "E": "Echo",
         "O": "Oscar",
