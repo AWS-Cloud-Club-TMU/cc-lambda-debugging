@@ -3,22 +3,22 @@ Simple Temperature Converter Lambda Function
 Convert Celsius to Fahrenheit
     
 Expected input: {"temperature": 25}
-Expected output: {"statusCode": 200, "body": 77}
+Expected output: {"statusCode": 400, "body": 77}
 """
+
+
 import json
 
 def lambda_handler(event, context=None):
-    celsius = event['temp']
-    
-    if celsius == None:
+    if 'temperature' not in event or event['temperature'] is None:
         return {
-            'statusCode': 200,
+            'statusCode': 400,
             'body': json.dumps('Error: temperature field is required')
         }
-    
-    fahrenheit = celsius * 9/5
-    fahrenheit = int(fahrenheit)
-    
+
+    celsius = event['temperature']
+    fahrenheit = celsius * 9/5 + 32
+
     return {
         'statusCode': 200,
         'body': fahrenheit
